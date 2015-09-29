@@ -2,7 +2,7 @@
   "name": "opencart-theme-boilerplate",
   "version": "0.1.0",
   "description": "A starting point for OpenCart themes",
-  "main": "Gruntfile.js",
+  "main": "scss/main.scss",
   "scripts": {
     "test": "grunt"
   },

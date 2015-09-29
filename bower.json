@@ -1,0 +1,28 @@
+{
+  "name": "opencart-theme-boilerplate",
+  "version": "0.1.0",
+  "homepage": "https://github.com/welfordmedia/opencart-theme-boilerplate",
+  "authors": [
+    "James Atkinson <jamesmtb@gmail.com>"
+  ],
+  "description": "A starting point for OpenCart themes",
+  "main": "scss/main.scss",
+  "keywords": [
+    "opencart",
+    "bootstrap",
+    "theme",
+    "css",
+    "sass",
+    "javascript",
+    "grunt",
+    "responsive"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
