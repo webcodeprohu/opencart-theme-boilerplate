@@ -21,14 +21,14 @@
 <link href="<?php echo $icon; ?>" rel="icon" />
 <?php } ?>
 <?php foreach ($links as $link) { ?>
-<link href="<?php echo $link['href']; ?>" rel="<?php echo $link['rel']; ?>" />
+<link href="<?php echo $link['href']; ?>" rel="<?php echo $link['rel']; ?>">
 <?php } ?>
 <script src="catalog/view/theme/custom/js/build/production.min.js" type="text/javascript"></script>
-<link href="catalog/view/theme/custom/bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
-<link href="//fonts.googleapis.com/css?family=Open+Sans:400,400i,300,700" rel="stylesheet" type="text/css" />
-<link href="catalog/view/theme/custom/css/main.css" rel="stylesheet" type="text/css" />
+<link href="catalog/view/theme/custom/bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,700' rel='stylesheet' type='text/css'>
+<link href="catalog/view/theme/custom/css/main.css" rel="stylesheet" type="text/css">
 <?php foreach ($styles as $style) { ?>
-<link href="<?php echo $style['href']; ?>" type="text/css" rel="<?php echo $style['rel']; ?>" media="<?php echo $style['media']; ?>" />
+<link href="<?php echo $style['href']; ?>" type="text/css" rel="<?php echo $style['rel']; ?>" media="<?php echo $style['media']; ?>">
 <?php } ?>
 <script src="catalog/view/javascript/common.js" type="text/javascript"></script>
 <?php foreach ($scripts as $script) { ?>
