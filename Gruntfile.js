@@ -9,19 +9,29 @@ module.exports = function(grunt) {
         // Metadata.
         pkg: grunt.file.readJSON('package.json'),
 
-        // Image build configuration.
-        imagemin: {
+        // Compile Sass to CSS.
+        sass: {
             dist: {
-                files: [{
-                    expand: true,
-                    cwd: 'img/',
-                    src: ['**/*.{png,jpg,gif}'],
-                    dest: 'img/'
-                }]
+                files: {
+                    'css/style.css': 'scss/style.scss'
+                }
             }
         },
 
-        // JavaScript build configuration.
+        // Add vendor prefixes and minify CSS.
+        postcss: {
+            options: {
+                processors: [
+                    require('autoprefixer')({browsers: 'last 2 versions'}),
+                    require('cssnano'),
+                ]
+            },
+            dist: {
+                src: 'css/style.css'
+            }
+        },
+
+        // Concatenate JavaScript.
         concat: {
             dist: {
                 src: [
@@ -33,6 +43,7 @@ module.exports = function(grunt) {
             }
         },
 
+        // Minify JavaScript.
         uglify: {
             dist: {
                 files: {
@@ -41,50 +52,43 @@ module.exports = function(grunt) {
             }
         },
 
-        // CSS build configuration.
-        sass: {
-            dist: {
-                files: {
-                    'css/main.css': 'scss/main.scss'
-                }
+        // Minify images.
+        imagemin: {
+            dynamic: {
+                files: [{
+                    expand: true,
+                    cwd: 'img/',
+                    src: ['**/*.{png,jpg,gif}'],
+                    dest: 'img/'
+                }]
             }
         },
 
-        postcss: {
-            options: {
-                map: true,
-                processors: [
-                    require('autoprefixer')({browsers: ['last 2 versions']}),
-                    require('cssnano')()
-                ]
-            },
-            dist: {
-                src: 'css/*.css'
-            }
-        },
-
-        // Development configuration.
+        // Watch for file changes and run tasks.
         watch: {
             options: {
                 livereload: true
             },
-            javascript: {
-                files: 'js/*.js',
-                tasks: ['concat', 'uglify']
+            styles: {
+                files: ['scss/**/*.scss'],
+                tasks: ['sass'],
+                options: {
+                    spawn: false
+                }
             },
-            css: {
-                files: 'scss/**/*.scss',
-                tasks: ['sass']
+            scripts: {
+                files: ['js/**/*.js'],
+                tasks: ['concat', 'uglify']
             }
         }
     });
 
     // Default tasks.
-    grunt.registerTask('default', ['imagemin', 'concat', 'uglify', 'sass', 'postcss', 'watch']);
+    grunt.registerTask('default', ['sass', 'postcss', 'concat', 'uglify', 'imagemin', 'watch']);
 
     // Development tasks.
     grunt.registerTask('dev', ['watch']);
 
     // Build tasks.
-    grunt.registerTask('build', ['imagemin', 'concat', 'uglify', 'sass', 'postcss']);
+    grunt.registerTask('build', ['sass', 'postcss', 'concat', 'uglify', 'imagemin']);
 };

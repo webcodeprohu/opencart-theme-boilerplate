@@ -1,23 +1,23 @@
 {
   "name": "opencart-theme-boilerplate",
-  "version": "0.1.0",
   "homepage": "https://github.com/welfordmedia/opencart-theme-boilerplate",
   "authors": [
     "James Atkinson <jamesmtb@gmail.com>"
   ],
   "description": "A starting point for OpenCart themes",
-  "main": "scss/main.scss",
+  "main": "scss/style.scss",
+  "moduleType": [],
   "keywords": [
     "opencart",
-    "bootstrap",
     "theme",
-    "css",
+    "scss",
     "sass",
-    "javascript",
-    "grunt",
+    "css",
+    "bootstrap",
     "responsive"
   ],
   "license": "MIT",
+  "private": true,
   "ignore": [
     "**/.*",
     "node_modules",
@@ -26,8 +26,8 @@
     "tests"
   ],
   "dependencies": {
-    "bootstrap-sass": "~3.3.5",
-    "font-awesome": "fontawesome#~4.4.0",
-    "jquery": "~2.1.4"
+    "bootstrap-sass": "^3.3.6",
+    "jquery": "^2.2.1",
+    "font-awesome": "fontawesome#^4.5.0"
   }
 }
